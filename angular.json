@@ -1,0 +1,162 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "espace-collaborative-angular": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/espace-collaborative-angular",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/Bootstrap/dist/css/bootstrap.css",
+              "src/assets/css/main.css",
+              "src/assets/css/fonts.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/libs/jquery.appear.js",
+              "src/assets/js/libs/jquery.mousewheel.js",
+              "src/assets/js/libs/perfect-scrollbar.js",
+              "src/assets/js/libs/jquery.matchHeight.js",
+              "src/assets/js/libs/svgxuse.js",
+              "src/assets/js/libs/imagesloaded.pkgd.js",
+              "src/assets/js/libs/Headroom.js",
+              "src/assets/js/libs/velocity.js",
+              "src/assets/js/libs/ScrollMagic.js",
+              "src/assets/js/libs/jquery.waypoints.js",
+              "src/assets/js/libs/jquery.countTo.js",
+              "src/assets/js/libs/popper.min.js",
+              "src/assets/js/libs/material.min.js",
+              "src/assets/js/libs/bootstrap-select.js",
+              "src/assets/js/libs/smooth-scroll.js",
+              "src/assets/js/libs/selectize.js",
+              "src/assets/js/libs/swiper.jquery.js",
+              "src/assets/js/libs/moment.js",
+              "src/assets/js/libs/daterangepicker.js",
+              "src/assets/js/libs/fullcalendar.js",
+              "src/assets/js/libs/isotope.pkgd.js",
+              "src/assets/js/libs/ajax-pagination.js",
+              "src/assets/js/libs/Chart.js",
+              "src/assets/js/libs/chartjs-plugin-deferred.js",
+              "src/assets/js/libs/circle-progress.js",
+              "src/assets/js/libs/loader.js",
+              "src/assets/js/libs/run-chart.js",
+              "src/assets/js/libs/jquery.magnific-popup.js",
+              "src/assets/js/libs/jquery.gifplayer.js",
+              "src/assets/js/libs/mediaelement-and-player.js",
+              "src/assets/js/libs/mediaelement-playlist-plugin.min.js",
+              "src/assets/js/libs/ion.rangeSlider.js",
+              "src/assets/js/libs/leaflet.js",
+              "src/assets/js/libs/MarkerClusterGroup.js",
+              "src/assets/fonts/fontawesome-all.js",
+              "src/assets/Bootstrap/dist/js/bootstrap.bundle.js",
+              "src/assets/js/svg-loader.js",
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "espace-collaborative-angular:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "espace-collaborative-angular:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "espace-collaborative-angular:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "espace-collaborative-angular:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "espace-collaborative-angular:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "espace-collaborative-angular"
+}
